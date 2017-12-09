@@ -44,4 +44,6 @@
 
 (defun test-x-while ()
   (let ((x 0))
-    (x-while #'(lambda (y) (< y 10))))) 
+    (x-while (< x 5)
+	     (format t "text")
+	     (incf x))))
