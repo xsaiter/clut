@@ -34,3 +34,14 @@
   (if (zerop b)
       a
       (e-gcd b (mod a b))))
+
+
+(defmacro x-while (predicate &rest body)
+  `(do ()
+    ((not ,predicate))
+     ,@body))
+
+
+(defun test-x-while ()
+  (let ((x 0))
+    (x-while #'(lambda (y) (< y 10))))) 
