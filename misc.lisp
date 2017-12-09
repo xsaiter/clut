@@ -25,3 +25,12 @@
 
 (defun dequeue (q)
   (pop (car q)))
+
+;;;
+;;; Euclidean gcd
+;;;
+
+(defun e-gcd (a b)
+  (if (zerop b)
+      a
+      (e-gcd b (mod a b))))
