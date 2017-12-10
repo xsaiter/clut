@@ -47,3 +47,7 @@
     (x-while (< x 5)
 	     (format t "text")
 	     (incf x))))
+  
+(defun quick-sort (arr l r)
+  (let ((i l)
+	(j r)
