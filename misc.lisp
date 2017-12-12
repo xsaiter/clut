@@ -47,7 +47,10 @@
     (x-while (< x 5)
 	     (format t "text")
 	     (incf x))))
-  
-(defun quick-sort (arr l r)
-  (let ((i l)
-	(j r)
+
+
+(defun area-right-triangle (a b c)
+  (destructuring-bind (x y z) (sort (list a b c) #'<)
+    (if (= (expt z 2) (+ (expt x 2) (expt y 2)))
+	(/ (* x y) 2)
+	nil)))
