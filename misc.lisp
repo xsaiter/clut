@@ -54,3 +54,21 @@
     (if (= (expt z 2) (+ (expt x 2) (expt y 2)))
 	(/ (* x y) 2)
 	nil)))
+
+
+(defun n! (x)
+  (if (= x 1)
+      1
+      (* x (n! (1- x)))))
+
+
+(defun area-rect (h w)
+  (* h w))
+
+
+(defun area-circle (r)
+  (* pi r r))
+
+
+(defun distance (x1 y1 x2 y2)
+  (sqrt (+ (expt (- x2 x1) 2) (expt (- y2 y1) 2))))
