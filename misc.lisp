@@ -36,19 +36,6 @@
       (e-gcd b (mod a b))))
 
 
-(defmacro x-while (predicate &rest body)
-  `(do ()
-    ((not ,predicate))
-     ,@body))
-
-
-(defun test-x-while ()
-  (let ((x 0))
-    (x-while (< x 5)
-	     (format t "text")
-	     (incf x))))
-
-
 (defun area-right-triangle (a b c)
   (destructuring-bind (x y z) (sort (list a b c) #'<)
     (if (= (expt z 2) (+ (expt x 2) (expt y 2)))
@@ -70,5 +57,31 @@
   (* pi r r))
 
 
+
 (defun distance (x1 y1 x2 y2)
   (sqrt (+ (expt (- x2 x1) 2) (expt (- y2 y1) 2))))
+
+
+
+(defmacro x-while (predicate &body body)
+  `(do ()
+    ((not ,predicate))
+     ,@body))
+
+
+(defun test-x-while ()
+  (let ((x 0))
+    (x-while (< x 5)
+	     (format t "text")
+	     (incf x))))
+
+
+(defmacro x-for (i beg end &body body)
+  `(do ((,i ,beg (1+ ,i)))
+	((> ,i  ,end) 'ok)
+	,@body))
+
+
+(defun test-for ()
+    (x-for j 0 5
+      (format t "iter")))
