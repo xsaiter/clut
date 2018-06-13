@@ -1,3 +1,5 @@
+(defpackage :xsaiter.sdb (:use :common-lisp))
+
 (defvar *db* nil)
 
 
@@ -32,9 +34,11 @@
 (defun select (predicate)
   (remove-if-not predicate *db*))
 
+
 (defun where (&key name age)
   #'(lambda (x)
       (and
        (if name (equal (getf x :name) name) t)
        (if age (equal (getf x :age) age) t))))
+
 
