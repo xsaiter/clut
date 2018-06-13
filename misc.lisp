@@ -85,3 +85,10 @@
 (defun test-for ()
     (x-for j 0 5
       (format t "iter")))
+
+(defun my-open ()
+  (let ((in (open "~/ttt/ls-books2.txt")))
+    (format t "~a~%" (read-line in))
+    (close in)))
+
+
